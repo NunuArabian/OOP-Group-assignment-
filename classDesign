@@ -5,11 +5,10 @@ Each of these components, together with territories and contitents, are a separa
 
 Game{} //interface of the game.
 
-startGame{ {
+startGame{
 private int numberOfPlayers;
 private int turn;
 private Player player; //based on numberOfPlayers
-}
 
 //methods
 chooseFirstPlayer()//who starts the game based on the highest dice roll.
