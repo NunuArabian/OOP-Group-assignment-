@@ -22,6 +22,7 @@ Cards[] cards; //stores both WildCads and RegularCards
 rollDice();
 attack();
 isValidAttach();
+addArmy(Terriortory territory, ArmyPiece piece, int numberOfpieces);
 }
 
 
