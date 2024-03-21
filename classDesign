@@ -1,3 +1,35 @@
 Risk is a strategy board game designed for 2-6 people. The game is played on a map with 42 territories and 6 continents. 
 
-The game consists of 5 dice, 42 risk cards, and 6 sets of armies each containing army pieces (Infantry, Cavalry, and Artillery). Each of these components, together with territories and contitents, are a separate class. 
+The game consists of 5 dice, 42 risk cards, and 6 sets of armies each containing army pieces (Infantry, Cavalry, and Artillery). 
+Each of these components, together with territories and contitents, are a separate class. 
+
+
+Game()
+
+private int numberOfPlayers;
+private int turn;
+private Player player; //based on numberOfPlayers
+
+
+//who starts the game based on the hightes dice roll.
+public chooseFirstPlayer() {
+}
+
+Player 
+int diceRollNumber
+Territory[] territory;
+
+Continent 
+Territory[] territory;
+int number of cards;
+
+ArmyPiece 
+-pieceType (Infantry, Cavalry, and Artillery);
+-based on pieceType, number of armies;
+
+Territory 
+
+Cards 
+
+
+
