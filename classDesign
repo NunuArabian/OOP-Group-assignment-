@@ -4,32 +4,63 @@ The game consists of 5 dice, 42 risk cards, and 6 sets of armies each containing
 Each of these components, together with territories and contitents, are a separate class. 
 
 
-Game()
-
+class Game{ {
 private int numberOfPlayers;
 private int turn;
 private Player player; //based on numberOfPlayers
 
-
-//who starts the game based on the hightes dice roll.
-public chooseFirstPlayer() {
+//methods
+chooseFirstPlayer()//who starts the game based on the hightes dice roll.
 }
 
-Player 
-int diceRollNumber
+Player {
+int diceRollNumber;
 Territory[] territory;
+Cards[] cards; //stores both WildCads and RegularCards
 
-Continent 
+//methods
+rollDice();
+isValidCombinatoin();
+attack();
+isValidAttach();
+}
+
+
+Continent {
 Territory[] territory;
 int number of cards;
+}
 
-ArmyPiece 
--pieceType (Infantry, Cavalry, and Artillery);
--based on pieceType, number of armies;
+ArmyPiece {
+private String pieceType //(Infantry, Cavalry, and Artillery);
+private numberOfArmies;
+  -based on pieceType, number of armies;
+}
 
-Territory 
+Card {
+//only methods, no constructor
+}
 
-Cards 
+//extends Card
+RegularCard {
+Territory territory;
+ArmyPiece armyPiece;
+}
+
+//extends Card, always the same
+WildCard {
+ArmyPiece armyPiece1;
+ArmyPiece armyPiece2;
+ArmyPiece armyPiece3;
+}
+
+Deck{
+Card[] availableCards;
+
+//methods
+removefromDeck();
+}
+
 
 
 
