@@ -3,14 +3,14 @@ Risk is a strategy board game designed for 2-6 people. The game is played on a m
 The game consists of 5 dice, 42 risk cards, and 6 sets of armies each containing army pieces (Infantry, Cavalry, and Artillery). 
 Each of these components, together with territories and continents, are a separate class. 
 
-Game{} //interface of the game.
-
-startGame{
+//interface of the game.
+Game{
 private int numberOfPlayers;
 private int turn;
 private Player player; //based on numberOfPlayers
 
 //methods
+play() will utalize chooseFirstPLayer()
 chooseFirstPlayer()//who starts the game based on the highest dice roll.
 }
 
@@ -46,6 +46,8 @@ drawCard()
 playCard()
 isValidCombination()
 playCombination()
+availbaleCards()
+removefromDeck();
 }
 
 //extends Card
@@ -59,13 +61,6 @@ WildCard {
 ArmyPiece armyPiece1;
 ArmyPiece armyPiece2;
 ArmyPiece armyPiece3;
-}
-
-Deck{
-Card[] availableCards;
-
-//methods
-removefromDeck();
 }
 
 
