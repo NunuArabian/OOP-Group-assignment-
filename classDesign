@@ -12,6 +12,9 @@ private Player player; //based on numberOfPlayers
 //methods
 play() will utalize chooseFirstPLayer()
 chooseFirstPlayer()//who starts the game based on the highest dice roll.
+attack();
+isValidAttack();
+rollDice();
 }
 
 Player {
@@ -20,10 +23,8 @@ Territory[] territory;
 Cards[] cards; //stores both WildCads and RegularCards
 
 //methods
-rollDice();
-attack();
-isValidAttack();
 addArmy(Terriortory territory, ArmyPiece piece, int numberOfpieces);
+addTerritory();
 }
 
 
