@@ -27,7 +27,7 @@ addArmy(Terriortory territory, ArmyPiece piece, int numberOfpieces);
 addTerritory();
 }
 
-
+Should continent be under Map Class?? //Victoria
 Continent {
 Territory[] territory;
 int number of cards;
