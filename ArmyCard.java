@@ -28,18 +28,17 @@ public class ArmyCard extends Card implements Cloneable {
     }
 
     @Override
-    public void tradeCard(Player p, ArmyCard[] cards) {
-        try {
-            isValidCombination(cards);
+    public void tradeCard(Player p, Card[] cards)  throws InvalidCombinationException{
+        if( isValidCombination((ArmyCard[]) cards)) {
             p.setArmy(3);
         }
-        catch(InvalidCombinationException e){
-           System.out.println(e.getMessage());
+        else {
+            throw new InvalidCombinationException;
         }
-
     }
 
-    public static boolean isValidCombination(ArmyCard[] cards) throws InvalidCombinationException {
+    public static boolean isValidCombination(ArmyCard[] cards) {
+
         if (cards.length != 3) {
             return false;
         }
@@ -62,9 +61,7 @@ public class ArmyCard extends Card implements Cloneable {
         } else if (infantry == 1 && cavalry == 1 && artillery == 1) {
             return true;
         }
-        else {
-            throw new InvalidCombinationException;
-        }
+        return false;
     }
 
 }
