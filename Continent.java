@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Continent {
-    private String Name;
-    private Arraylist<Territory> territories;
+    private String name;
+    private ArrayList<Territory> territories;
     private int bonusTroops;
 
     public Continent(String name, int bonusTroops) {

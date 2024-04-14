@@ -1,13 +1,13 @@
-public class ArmyCard {
+public class ArmyCard extends Card implements Cloneable {
     private final Territory territory;
     private final ArmyPiece[] armyPiece;
 
     public ArmyCard(Card.CardType cardType) {
         super(Card.CardType.WILD);
         this.armyPiece = new ArmyPiece[3];
-        armyPiece[0] == new ArmyPiece("Infanrty");
-        armyPiece[1] == new ArmyPiece("Cavalry");
-        armyPiece[1] == new ArmyPiece("Artillery");
+        armyPiece[0] = new ArmyPiece(ArmyPiece.PieceType.INFANTRY);
+        armyPiece[1] = new ArmyPiece(ArmyPiece.PieceType.CAVALRY);
+        armyPiece[2] = new ArmyPiece(ArmyPiece.PieceType.ARTILLERY);
         this.territory = null;
     }
 
@@ -27,7 +27,18 @@ public class ArmyCard {
         }
     }
 
-    public boolean isValidCombination(ArmyCard[] cards) {
+    @Override
+    public void tradeCard(Player p, Card[] cards)  throws InvalidCombinationException{
+        if( isValidCombination((ArmyCard[]) cards)) {
+            p.setArmy(3);
+        }
+        else {
+            throw new InvalidCombinationException;
+        }
+    }
+
+    public static boolean isValidCombination(ArmyCard[] cards) {
+
         if (cards.length != 3) {
             return false;
         }

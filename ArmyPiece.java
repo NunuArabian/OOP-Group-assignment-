@@ -1,9 +1,26 @@
 public class ArmyPiece {
-    private String pieceType;
-    private numberOfArmies;
+    private PieceType pieceType;
+    private int numberOfArmies;
 
-    public ArmyPiece(String pieceType) {
+
+
+    public enum PieceType {INFANTRY, CAVALRY, ARTILLERY}
+
+    public ArmyPiece(PieceType pieceType) {
 	      this.pieceType = pieceType;
-	      this.numberOfArmies = numberOfArmies;
+          if(pieceType == PieceType.INFANTRY)
+          {
+              numberOfArmies = 1;
+          }
+          else if(pieceType == PieceType.CAVALRY) {
+              numberOfArmies = 5;
+          }
+          else if(pieceType == PieceType.ARTILLERY) {
+              numberOfArmies = 10;
+          }
+    }
+
+    public PieceType getPieceType() {
+        return this.pieceType;
     }
 }
