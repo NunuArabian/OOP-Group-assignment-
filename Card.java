@@ -1,5 +1,6 @@
 public abstract class Card {
 
+
     public enum CardType {WILD, REGULAR, ACTION}
     public CardType cardType;
 

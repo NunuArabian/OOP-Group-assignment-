@@ -33,7 +33,7 @@ public class ArmyCard extends Card implements Cloneable {
             p.setArmy(3);
         }
         else {
-            throw new InvalidCombinationException;
+            throw new InvalidCombinationException();
         }
     }
 

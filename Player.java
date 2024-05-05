@@ -1,26 +1,32 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Player {
+public class Player implements Comparable<Player>{
+    private String name;
     private int diceRollNumber;
     private ArrayList<Territory> territories;
     private ArrayList<Card> cards;
     private int armies;
 
-    public Player() {
+    private int score;
+
+    public Player(String name) {
         this.diceRollNumber = 0;
         this.territories = new ArrayList<>();
         this.cards = new ArrayList<>();
-        this.armies = 0;
+        this.armies = 30;
+        this.score = 0;
+        this.name = name;
     }
 
-    public void addArmyToTerritory(Territory territory, int numberOfPieces) {
+    public boolean addArmyToTerritory(Territory territory, int numberOfPieces) {
         if (this.territories.contains(territory)) {
                 territory.setArmy(numberOfPieces);
-                this.setArmy(this.armies-numberOfPieces);
+                this.addArmy(this.armies-numberOfPieces);
+                return true;
 
         } else {
-            System.out.println("You don't own this territory!");
+            return false;
         }
     }
 
@@ -28,12 +34,19 @@ public class Player {
         this.territories.add(territory);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public int getArmies() {
         return this.armies;
     }
 
-    public void setArmy(int armies) {
+    public void addArmy(int armies) {
        this.armies += armies;
+    }
+    public void removeArmy(int armies) {
+        this.armies -= armies;
     }
 
     public void addCard(Card card) {
@@ -54,4 +67,13 @@ public class Player {
 
     public void exchangeCards() {
     }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int compareTo(Player other) {
+        return other.diceRollNumber-this.diceRollNumber;
+    }
+
 }

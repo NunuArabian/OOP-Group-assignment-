@@ -14,6 +14,17 @@ public class Continent {
     public void addTerritory(Territory territory) {
 	      territories.add(territory);
     }
+    public String getName() {
+        return this.name;
+    }
+
+    public int getBonusTroops() {
+        return this.bonusTroops;
+    }
+
+    public ArrayList<Territory> getTerritories() {
+        return territories;
+    }
 
     public void removeTerritory(Territory territory) {
 	      territories.remove(territory);
