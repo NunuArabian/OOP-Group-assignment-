@@ -47,16 +47,5 @@ public class ActionCard extends Card{
 //    }
 
 
-    //playTime and card type needs to be checked before calling this method.
-    @Override
-    public void tradeCard(Player p, Card[] cards) throws InvalidCombinationException {
-        if(cards.length>1) {
-            throw new InvalidCombinationException();
-        }
-        else {
-            ActionCard card = (ActionCard) cards[0];
-            //card.ActionExecution();
-        }
 
-    }
 }

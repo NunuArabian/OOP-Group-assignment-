@@ -11,12 +11,4 @@ public abstract class Card {
     }
     public CardType getCardType() { return this.cardType; }
 
-    public Card drawCard() { return null; }
-
-    public Card[] availableCards() {
-        return null;
-    }
-
-    public void removeFromDeck() {}
-    public abstract void tradeCard(Player p, Card[] cards) throws InvalidCombinationException;
 }

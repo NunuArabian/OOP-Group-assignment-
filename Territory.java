@@ -22,7 +22,7 @@ public class Territory {
     }
 
     public void setOwner(Player owner) {
-	      this.owner = owner;
+        this.owner = owner;
     }
 
     public void setArmy(int numberOfPieces) {
@@ -30,33 +30,48 @@ public class Territory {
     }
 
     public Player getOwner() {
-	      return owner;
+        return owner;
     }
 
-    public String getName() { return name;}
+    public String getName() {
+        return name;
+    }
+
+    public int getArmies() {
+        return armies;
+    }
+
+    public void removeArmies(int n) {
+        armies -= n;
+    }
 
     public static Map<String, ArrayList<String>> getAllAdjacentTerritories() {
 
         Map<String, ArrayList<String>> allAdjacentTerritories = null;
         try {
             Scanner inputStream = new Scanner(new FileInputStream("adjacentTerritories"));
-            while(inputStream.hasNext()) {
+            while (inputStream.hasNext()) {
                 String line = inputStream.nextLine();
                 String[] territoryArray = line.split(",");
-                if(territoryArray.length>0) {
+                if (territoryArray.length > 0) {
                     String key = territoryArray[0];
                     ArrayList<String> values = new ArrayList<>();
                     for (int i = 1; i < territoryArray.length; i++) {
                         values.add(territoryArray[i]);
                     }
-                    allAdjacentTerritories.put(key,values);
+                    allAdjacentTerritories.put(key, values);
                 }
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not found.");
             System.exit(0);
         }
         return allAdjacentTerritories;
     }
+
+    public boolean isAdjacent(String name) {
+        return this.adjacentTerritories.contains(name);
+    }
 }
+
+

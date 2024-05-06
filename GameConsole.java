@@ -7,7 +7,6 @@ public class GameConsole {
 
     public void play() {
         Player[] players = new Player[Game.NUMBER_OF_PLAYERS];
-        int[] diceNumbers = new int[Game.NUMBER_OF_PLAYERS];
         Scanner sc = new Scanner(System.in);
         for(int i = 0; i<players.length; i++) {
             System.out.println("Hello player " + i + " please enter your name");
