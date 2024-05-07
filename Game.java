@@ -55,10 +55,7 @@ public class Game {
             currentTurn++;
     }
 
-
-    public void playTurn(Player p) {
-
-    }
+    public int getCurrentTurn() { return currentTurn; };
 
 
     /**
@@ -76,17 +73,17 @@ public class Game {
      * Checks if the game is over and terminates the game.
      */
 
-    public void isOver () {
+    public boolean isOver () {
         if (currentTurn > NUMBER_OF_TURNS) {
             System.out.println("Number of turns reached. The game is over");
-            System.exit(0);
-        } else {
-            for (int i = 0; i < players.length; i++) {
-                if (players[i].getTerritories().size() == 42) {
+            return true;
+        }
+        for (int i = 0; i < players.length; i++) {
+            if (players[i].getTerritories().size() == 42) {
                     System.out.println(players[i].getName() + " has won. The game is over");
-                    System.exit(0);
-                }
+                    return true;
             }
         }
+        return false;
     }
 }

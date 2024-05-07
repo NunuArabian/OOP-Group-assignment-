@@ -49,6 +49,10 @@ public class Player implements Comparable<Player>{
         return this.name;
     }
 
+    public ArrayList<Card> getCards() {
+        return this.cards;
+    }
+
     public int getArmies() {
         return this.armies;
     }
@@ -128,6 +132,16 @@ public class Player implements Comparable<Player>{
         return false;
     }
 
+
+    public Territory returnTerritory(String name) {
+        for (int i = 0; i< territories.size(); i++) {
+            if (territories.get(i).getName().equals(name)) {
+                return territories.get(i);
+            }
+        }
+        return null;
+    }
+
     /**
      * Method that adds armies to player's stack based on the number of territories they occupy.
      */
@@ -167,20 +181,24 @@ public class Player implements Comparable<Player>{
         }
     }
 
-    public void TradeArmyCards(ArmyCard[] cards) throws InvalidCombinationException {
-        if (ArmyCard.isValidCombination(cards)) {
+    public void TradeArmyCards(int[] indexes) throws InvalidCombinationException {
+        ArrayList<ArmyCard> cards = new ArrayList<>();
+        for (int i = 0; i<indexes.length; i++) {
+            ArmyCard card = (ArmyCard) this.getCards().get(indexes[i]);
+            cards.add(card);
+        }
+
+        ArmyCard[] tradingCards = new ArmyCard[cards.size()];
+        tradingCards = cards.toArray(tradingCards);
+
+        if (ArmyCard.isValidCombination(tradingCards)) {
             addArmy(3);
+            for (int i = 0; i<indexes.length; i++) {
+                this.getCards().remove(indexes[i]);
+            }
         } else {
             throw new InvalidCombinationException();
         }
-    }
-
-
-    /*you can trade in 1 action card if it is the correct turn. This should be checked in the actionCard method*/
-
-    public boolean TradeActionCard() {
-        //TODO
-        return false;
     }
 
 }

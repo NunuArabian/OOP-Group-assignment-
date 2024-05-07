@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.io.FileInputStream;
@@ -47,7 +48,7 @@ public class Territory {
 
     public static Map<String, ArrayList<String>> getAllAdjacentTerritories() {
 
-        Map<String, ArrayList<String>> allAdjacentTerritories = null;
+        HashMap<String, ArrayList<String>> allAdjacentTerritories = new HashMap<String, ArrayList<String>>();
         try {
             Scanner inputStream = new Scanner(new FileInputStream("adjacentTerritories"));
             while (inputStream.hasNext()) {
@@ -72,6 +73,7 @@ public class Territory {
     public boolean isAdjacent(String name) {
         return this.adjacentTerritories.contains(name);
     }
+
 }
 
 

@@ -1,6 +1,6 @@
 public class InvalidCombinationException extends Exception {
     public InvalidCombinationException() {
-        super("This card combintatoin is invalid.Try again!");
+        super("This card combintatoin is invalid.Moving on.");
     }
 
     public InvalidCombinationException(String msg) {
