@@ -1,9 +1,9 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Class that represents the Deck of the game.
  */
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> deck;

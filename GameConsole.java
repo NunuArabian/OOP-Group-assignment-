@@ -1,9 +1,10 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * Class that represents the UI fo the game.
  */
 
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class GameConsole {
 
