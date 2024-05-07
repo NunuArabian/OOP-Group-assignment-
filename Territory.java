@@ -1,12 +1,13 @@
-/**
- * Class that describes the territories in the game.
- */
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.FileInputStream;
+
+/**
+ * Class that describes the territories in the game.
+ */
+
 
 public class Territory {
 

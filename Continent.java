@@ -1,8 +1,9 @@
+
+import java.util.ArrayList;
+
 /**
  * Class that represents the continents in the game.
  */
-
-import java.util.ArrayList;
 
 public class Continent {
     private String name;
@@ -23,7 +24,7 @@ public class Continent {
     }
 
     /**
-     * Method that addss territories to continents.
+     * Method that adds territories to continents.
      * @param territory <code>Territory</code> to be added.
      */
 
@@ -43,7 +44,7 @@ public class Continent {
     /**
      * Returns the number of troops player wins by conquering the continent.
      *
-     * @return <code>int</code?> number of troops.
+     * @return <code>int</code> number of troops.
      */
 
     public int getBonusTroops() {

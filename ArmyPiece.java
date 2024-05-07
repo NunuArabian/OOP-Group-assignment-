@@ -1,4 +1,6 @@
-
+/**
+ * The class that represents the army pieces in the Risk game.
+ *  */
 
 public class ArmyPiece {
     private PieceType pieceType;
@@ -7,6 +9,11 @@ public class ArmyPiece {
 
 
     public enum PieceType {INFANTRY, CAVALRY, ARTILLERY}
+
+    /**
+     * Constructs an ArmyPiece object based on the provided PieceType
+     * @param pieceType
+     */
 
     public ArmyPiece(PieceType pieceType) {
 	      this.pieceType = pieceType;
@@ -21,6 +28,11 @@ public class ArmyPiece {
               numberOfArmies = 10;
           }
     }
+
+    /**
+     * Returns the <code>PieceType</code> of the army piece
+     * @return the <code>PieceType</code> of the army piece
+     */
 
     public PieceType getPieceType() {
         return this.pieceType;

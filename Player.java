@@ -1,8 +1,8 @@
+import java.util.ArrayList;
+
 /**
  * Class that represent the players of the game.
  */
-
-import java.util.ArrayList;
 
 public class Player implements Comparable<Player>{
     private String name;

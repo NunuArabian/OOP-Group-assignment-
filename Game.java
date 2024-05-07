@@ -1,10 +1,10 @@
-/**
- * Class to represent a game of risk.
- */
-
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
+/**
+ * Class to represent a game of risk.
+ */
 
 public class Game {
     private final Player[] players;
