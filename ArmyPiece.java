@@ -1,3 +1,5 @@
+
+
 public class ArmyPiece {
     private PieceType pieceType;
     private int numberOfArmies;

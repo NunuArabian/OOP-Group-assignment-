@@ -1,8 +1,17 @@
+/**
+ * Class that represents the Deck of the game.
+ */
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
     private ArrayList<Card> deck;
+
+    /**
+     * Constructs the default deck.
+     * @param map <code>Continent Array</code> used to initialize <code>ArmyCards</code>.
+     */
 
     public Deck(Continent[] map) {
         deck = new ArrayList<>();
@@ -43,6 +52,11 @@ public class Deck {
 
         Collections.shuffle(deck);
     }
+
+    /**
+     * Method that lets players draw a card from the deck.
+     * @return the drawn <code>Card</code>
+     */
 
     public Card drawCard() {
         int index = (int)(Math.random() * deck.size());

@@ -1,6 +1,14 @@
+/**
+ * The ArmyCard class represents the army cards in the Risk game.
+ *  */
+
 public class ArmyCard extends Card implements Cloneable {
     private final Territory territory;
     private final ArmyPiece[] armyPiece;
+
+    /**
+     * Constructs a Wild <code>ArmyCard</code> type.
+     */
 
     public ArmyCard(Card.CardType cardType) {
         super(Card.CardType.WILD);
@@ -11,12 +19,26 @@ public class ArmyCard extends Card implements Cloneable {
         this.territory = null;
     }
 
+    /**
+     * Constructs a Regular <code>ArmyCard</code> with a given type.
+     *
+     * @param cardType defines which card type to create.
+     * @param territory defines the territory to be used in the card
+     * @param armyPiece defines which army piece the card should have.
+     */
+
     public ArmyCard(Card.CardType cardType, Territory territory, ArmyPiece armyPiece) {
         super(Card.CardType.REGULAR);
         this.territory = territory;
         this.armyPiece = new ArmyPiece[1];
         this.armyPiece[0] = armyPiece;
     }
+
+    /**
+     * Returns the army piece of the card.
+     *
+     * @return <code>ArmyPiece</code>
+     */
 
     public ArmyPiece getArmyPiece() {
         if(this.cardType == Card.CardType.WILD) {
@@ -26,6 +48,13 @@ public class ArmyCard extends Card implements Cloneable {
             return this.armyPiece[0];
         }
     }
+
+    /**
+     * Method that checks if the cards form a valid combination to be traded.
+     *
+     * @param cards array of cards
+     * @return true if the combination is valid, false otherwise.
+     */
 
     public static boolean isValidCombination(ArmyCard[] cards) {
 
