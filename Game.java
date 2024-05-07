@@ -1,5 +1,7 @@
-import java.util.Collections;
-import java.util.ArrayList;
+/**
+ * Class to represent a game of risk.
+ */
+
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,6 +18,11 @@ public class Game {
     private static final int NUMBER_OF_CONTINENTS = 6;
 
 
+    /**
+     * Constructs an instance of a risk game based on provided players.
+     * @param playerNames the <code>Array</code> of players.
+     */
+
     public Game(Player[] playerNames) {
         players = playerNames;
         map = new Continent[NUMBER_OF_CONTINENTS];
@@ -23,6 +30,10 @@ public class Game {
         deck = new Deck(map);
         currentTurn = 0;
     }
+
+    /**
+     * Initialized the default map of the game.
+     */
 
 
     private void initializeMap() {
@@ -49,11 +60,19 @@ public class Game {
         }
     }
 
+    /**
+     * Helper method to keep track of the game turn
+     */
 
 
     public void turnCounter() {
             currentTurn++;
     }
+
+    /**
+     * Returns the current turn of the game.
+     * @return <code>int</code> turn of the game.
+     */
 
     public int getCurrentTurn() { return currentTurn; };
 

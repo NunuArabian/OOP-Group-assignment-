@@ -1,9 +1,17 @@
+/**
+ * Class that represents the UI fo the game.
+ */
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameConsole {
 
     private Game risk;
+
+    /**
+     * Methods that executes the full game of the risk.
+     */
 
     public void play() {
         Player[] players = new Player[Game.NUMBER_OF_PLAYERS];
@@ -103,6 +111,14 @@ public class GameConsole {
             //TODO action card usage.
         }
     }
+
+    /**
+     * Helper method that returns <code>Player</code> object based on name.
+     *
+     * @param players <code>Array</code> of <code>Players</code>
+     * @param name <code>String</code> name of the player
+     * @return <code>Player</code> that matches the name.
+     */
 
     private static Player returnPlayer(Player[] players, String name) {
         for(int i = 0; i< players.length; i++) {

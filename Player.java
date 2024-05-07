@@ -1,5 +1,8 @@
+/**
+ * Class that represent the players of the game.
+ */
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Player implements Comparable<Player>{
     private String name;
@@ -10,6 +13,12 @@ public class Player implements Comparable<Player>{
 
     private int score;
 
+    /**
+     * Constructs the player object of the game.
+     * @param name <code>String</code> name of the player.
+     */
+
+
     public Player(String name) {
         //this.diceRollNumber = 0;
         this.territories = new ArrayList<>();
@@ -19,18 +28,127 @@ public class Player implements Comparable<Player>{
         this.name = name;
     }
 
+
+    /**
+     * Method that adds territory to the player.
+     * @param territory
+     */
+
+    public void addTerritory(Territory territory) {
+        this.territories.add(territory);
+    }
+
+    /**
+     * Returns the name of the player.
+     * @return <code>String</code> name of the player.
+     */
+
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Returns the cards of the player.
+     * @return <code>ArrayList</code> of cards.
+     */
+
+    public ArrayList<Card> getCards() {
+        return this.cards;
+    }
+
+    /**
+     * Returns the number of armies of the player.
+     * @return <code>int</code> number of armies.
+     */
+    public int getArmies() {
+        return this.armies;
+    }
+
+    /**
+     * Returns the territories the player owns.
+     * @return <code>ArrayList</code> of territories.
+     */
+
+    public ArrayList<Territory> getTerritories() { return this.territories; }
+
+    /**
+     * Adds armies to player.
+     * @param armies <code>int</code> number of armies to add.
+     */
+
+    public void addArmy(int armies) {
+       this.armies += armies;
+    }
+
+    /**
+     * Adds armies to player.
+     * @param armies <code>int</code> number of armies to add.
+     */
+
+    public void removeArmy(int armies) {
+        this.armies -= armies;
+    }
+
+    /**
+     * Adds cards to player.
+     * @param card <code>Card</code> to add.
+     */
+
+    public void addCard(Card card) {
+        this.cards.add(card);
+    }
+
+    /**
+     * Method used to imitate the rolling of the dice.
+     */
+
+    public void rollDice() {
+        this.diceRollNumber = (int) (Math.random() * 6) + 1;
+    }
+
+    /**
+     * Returns the mos recent dice roll number.
+     * @return the dice toll number.
+     */
+
+    public int getDiceRollNumber() {
+        return this.diceRollNumber;
+    }
+
+//    public void addScore(int score) {
+//        this.score += score;
+//    }
+
+
+    /**
+     * Adds armies to player's territory.
+     * @param territory <code>Territory</code> to add armies to.
+     * @param numberOfPieces <code>int</code> number of armies to add.
+     *
+     * @return Returns true if the addition is successful.
+     */
+
     public boolean addArmyToTerritory(Territory territory, int numberOfPieces) {
         if (this.territories.contains(territory)) {
-                territory.setArmy(numberOfPieces);
-                this.addArmy(this.armies-numberOfPieces);
-                return true;
+            territory.setArmy(numberOfPieces);
+            this.addArmy(this.armies-numberOfPieces);
+            removeArmy(numberOfPieces);
+            return true;
 
         } else {
             return false;
         }
     }
 
-    public void removeArmyToTerritory(Territory territory, int numberOfPieces) throws InsufficientArmiesException {
+    /**
+     * Removes armies from player's territory.
+     * @param territory <code>Territory</code> to remove armies from.
+     * @param numberOfPieces <code>int</code> number of armies to rmeove.
+     *
+     */
+
+
+    public void removeArmyFromTerritory(Territory territory, int numberOfPieces) throws InsufficientArmiesException {
         if (this.territories.contains(territory)) {
             int remainder = territory.getArmies() - numberOfPieces;
             if (remainder > 0) {
@@ -39,51 +157,6 @@ public class Player implements Comparable<Player>{
                 throw new InsufficientArmiesException();
             }
         }
-    }
-
-    public void addTerritory(Territory territory) {
-        this.territories.add(territory);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public ArrayList<Card> getCards() {
-        return this.cards;
-    }
-
-    public int getArmies() {
-        return this.armies;
-    }
-
-    public ArrayList<Territory> getTerritories() { return this.territories; }
-
-    public void addArmy(int armies) {
-       this.armies += armies;
-    }
-    public void removeArmy(int armies) {
-        this.armies -= armies;
-    }
-
-    public void addCard(Card card) {
-        this.cards.add(card);
-    }
-
-    public void removeCard(Card card) {
-        this.cards.remove(card);
-    }
-
-    public void rollDice() {
-        this.diceRollNumber = (int) (Math.random() * 6) + 1;
-    }
-
-    public int getDiceRollNumber() {
-        return this.diceRollNumber;
-    }
-
-    public void addScore(int score) {
-        this.score += score;
     }
 
     /** Method that compares the dice roll.
@@ -132,6 +205,12 @@ public class Player implements Comparable<Player>{
         return false;
     }
 
+    /**
+     * Returns <code>Territory</code> based on the provided name.
+     * @param name <code>String</code> name of the territory.
+     * @return
+     */
+
 
     public Territory returnTerritory(String name) {
         for (int i = 0; i< territories.size(); i++) {
@@ -166,20 +245,26 @@ public class Player implements Comparable<Player>{
     /**
      * Method that moves armies from one territory to another.
      *
-     * @param origin
-     * @param destination
-     * @param number
+     * @param origin Original territory
+     * @param destination Destination  territory
+     * @param number the number of armies to move.
      */
 
     public void fortify(Territory origin, Territory destination, int number) throws InsufficientArmiesException {
         try {
-            removeArmyToTerritory(origin, number);
+            removeArmyFromTerritory(origin, number);
             addArmyToTerritory(destination,number);
         }
         catch (InsufficientArmiesException e){
             throw new InsufficientArmiesException();
         }
     }
+    /**
+     * Method to trade ArmyCards.
+     *
+     * @param indexes the indexes of the cards
+     */
+
 
     public void TradeArmyCards(int[] indexes) throws InvalidCombinationException {
         ArrayList<ArmyCard> cards = new ArrayList<>();

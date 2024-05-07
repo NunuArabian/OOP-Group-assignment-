@@ -1,7 +1,10 @@
+/**
+ * Class that describes the territories in the game.
+ */
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
@@ -12,8 +15,13 @@ public class Territory {
     private int armies;
 
     private ArrayList<String> adjacentTerritories;
-    private static Map<String, ArrayList<String>> allAdjacentTerritories = getAllAdjacentTerritories();
+    private static HashMap<String, ArrayList<String>> allAdjacentTerritories = getAllAdjacentTerritories();
 
+
+    /**
+     * Given a name, constructs the territory.
+     * @param name <code>String</code> name of the continent.
+     */
 
     public Territory(String name) {
         this.name = name;
@@ -22,31 +30,68 @@ public class Territory {
         this.adjacentTerritories = allAdjacentTerritories.get(name);
     }
 
+    /**
+     * Sets the owner of the territory.
+     *
+     * @param owner <code>Player</code> who owns the territory.
+     */
+
     public void setOwner(Player owner) {
         this.owner = owner;
     }
+
+    /**
+     * Sets the number of armies to the territory.
+     *
+     * @param numberOfPieces <code>int</code> number of armies.
+     */
 
     public void setArmy(int numberOfPieces) {
         armies += numberOfPieces;
     }
 
+    /**
+     * Returns the owner of the <code>Territory</code>.
+     * @return <code>Player</code> who owns the territory.
+     */
+
     public Player getOwner() {
         return owner;
     }
+
+    /**
+     * Returns the name of the owner of the <code>Territory</code>.
+     * @return <code>String</code> the name of the playe who owns the territory.
+     */
 
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the number of armies in the territory.
+     * @return <code>int</code> number of armies.
+     */
+
     public int getArmies() {
         return armies;
     }
+
+    /**
+     * Removes armies from the territory.
+     * @param n <code>int</code> number of armies to remove.
+     */
 
     public void removeArmies(int n) {
         armies -= n;
     }
 
-    public static Map<String, ArrayList<String>> getAllAdjacentTerritories() {
+    /**
+     * Returns all adjacent territories on the map as <code>HashMap</code>.
+     * @return <code>HashMap</code> of adjacent territories.
+     */
+
+    public static HashMap<String, ArrayList<String>> getAllAdjacentTerritories() {
 
         HashMap<String, ArrayList<String>> allAdjacentTerritories = new HashMap<String, ArrayList<String>>();
         try {
@@ -69,6 +114,12 @@ public class Territory {
         }
         return allAdjacentTerritories;
     }
+
+    /**
+     * Returns true if the calling territory is adjacent.
+     * @param name <code>String</code> name of the territory.
+     * @return
+     */
 
     public boolean isAdjacent(String name) {
         return this.adjacentTerritories.contains(name);
