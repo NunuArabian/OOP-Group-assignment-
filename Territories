@@ -1,17 +1,17 @@
 new
-North America
+NorthAmerica
 5
 Alaska
 Alberta
-Central America
-Eastern United States
+CentralAmerica
+EasternUnitedStates
 Greenland
-Northwest Territory
+NorthwestTerritory
 Ontario
 Quebec
-Western United States
+WesternUnitedStates
 new
-South America
+SouthAmerica
 2
 Argentina
 Brazil
@@ -20,22 +20,22 @@ Venezuela
 new
 Europe
 5
-Great Britain
+GreatBritain
 Iceland
-Northern Europe
+NorthernEurope
 Scandinavia
-Southern Europe
+SouthernEurope
 Ukraine
-Western Europe
+WesternEurope
 new
 Africa
 3
 Congo
-East Africa
+EastAfrica
 Egypt
 Madagascar
-North Africa
-South Africa
+NorthAfrica
+SouthAfrica
 new
 Asia
 7
@@ -45,7 +45,7 @@ India
 Irkutsk
 Japan
 Kamchatka
-Middle East
+MiddleEast
 Mongolia
 Siam
 Siberia
@@ -54,8 +54,8 @@ Yakutsk
 new
 Australia
 2
-Eastern Australia
+EasternAustralia
 Indonesia
-New Guinea
-Western Australia
+NewGuinea
+WesternAustralia
 end

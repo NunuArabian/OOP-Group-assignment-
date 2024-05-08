@@ -32,27 +32,19 @@ public class GameConsole {
         risk = new Game(players);
 
         for (int i = 0; i < players.length; i++) {
-            System.out.println(players[i].getName() + " place your armies by typing the Territory and number of armies." +
-                    "Input end when done");
-            while (!sc.next().equals("done")) {
+            System.out.println(players[i].getName() + " place your armies by typing the Territory and number of armies.");
+            while (sc.hasNext()) {
                 String input = sc.next();
-                try {
-                    if (sc.hasNextInt()) {
-                        int armyCount = sc.nextInt();
-                        Territory tr = new Territory(input);
-                        players[i].addTerritory(tr);
-                        if (!players[i].addArmyToTerritory(tr, armyCount)) {
-                            System.out.println(tr.getName() + " is already claimed");
-                        }
-                    }
-                } catch (Exception e) {
-                    System.out.println("Invalid input. Please try again.");
+                int armyCount = sc.nextInt();
+                Territory tr = new Territory(input);
+                players[i].addTerritory(tr);
+                if (!players[i].addArmyToTerritory(tr, armyCount)) {
+                    System.out.println(tr.getName() + " is already claimed");
                 }
             }
             System.out.println(players[i].getName() + " has finished placing armies.");
         }
         risk.turnCounter();
-        System.out.println(risk.getCurrentTurn());
 
         while (!risk.isOver()) {
             for (int i = 0; i < players.length; i++) {
@@ -70,9 +62,10 @@ public class GameConsole {
                         System.out.println(e.getMessage());
                     }
                 }
+                if(players[i].getArmies()>0)
                 System.out.println(players[i].getName() + "You have " + players[i].getArmies() + " armies." +
                         "Place them by indicating the names of the territory then the number." +
-                        " Input end when done");
+                        " Input end when done or no");
 
                 while (!sc.next().equals("done")) {
                     Territory trr = players[i].returnTerritory(sc.next());
