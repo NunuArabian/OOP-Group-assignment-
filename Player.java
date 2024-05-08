@@ -86,7 +86,7 @@ public class Player implements Comparable<Player>{
      */
 
     public void removeArmy(int armies) {
-        this.armies -= armies;
+        this.armies = this.armies-armies;
     }
 
     /**
@@ -131,8 +131,8 @@ public class Player implements Comparable<Player>{
     public boolean addArmyToTerritory(Territory territory, int numberOfPieces) {
         if (this.territories.contains(territory)) {
             territory.setArmy(numberOfPieces);
-            this.addArmy(this.armies-numberOfPieces);
             removeArmy(numberOfPieces);
+            System.out.println(armies);
             return true;
 
         } else {
