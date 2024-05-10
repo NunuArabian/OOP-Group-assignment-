@@ -132,7 +132,6 @@ public class Player implements Comparable<Player>{
         if (this.territories.contains(territory)) {
             territory.setArmy(numberOfPieces);
             removeArmy(numberOfPieces);
-            System.out.println(armies);
             return true;
 
         } else {
