@@ -18,23 +18,28 @@ public class GameConsole {
         Player[] players = new Player[Game.NUMBER_OF_PLAYERS];
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < players.length; i++) {
-            System.out.println("Hello player " + i + " please enter your name");
+            System.out.println("Hello player " + (i+1) + " please enter your name");
             players[i] = new Player(sc.nextLine());
             System.out.println("Rolling the dice to determine the order of the game");
             players[i].rollDice();
         }
         Arrays.sort(players);
+        System.out.print("Players order: ");
         for (int i = 0; i < players.length; i++) {
-            System.out.println("Players order:");
-            System.out.println(players[i].getName());
+            System.out.print(players[i].getName() + " ");
         }
+        System.out.println();
 
         risk = new Game(players);
 
         for (int i = 0; i < players.length; i++) {
-            System.out.println(players[i].getName() + " place your armies by typing the Territory and number of armies.");
-            while (sc.hasNext()) {
+            System.out.println(players[i].getName() + " place your armies by typing the Territory and number of armies." +
+                    "Input end when done");
+            while (true) {
                 String input = sc.next();
+                if (input.equals("end")) {
+                    break;
+                }
                 int armyCount = sc.nextInt();
                 Territory tr = new Territory(input);
                 players[i].addTerritory(tr);
@@ -51,9 +56,9 @@ public class GameConsole {
                 players[i].gainArmies();
                 System.out.println(players[i].getName() + " Do you want to trade in cards. Yes/No");
                 if (sc.next().equals("Yes")) {
-                    System.out.println("Which cards do you want to trade, input 3 indexes. Input end when done");
+                    System.out.println("Which cards do you want to trade, input 3 indexes.");
                     int[] cardIndexes = new int[3];
-                    while (!sc.next().equals("done")) {
+                    for(int j = 0; j<3; j++) {
                         cardIndexes[i] = sc.nextInt();
                     }
                     try {
@@ -62,19 +67,26 @@ public class GameConsole {
                         System.out.println(e.getMessage());
                     }
                 }
-                if(players[i].getArmies()>0)
-                System.out.println(players[i].getName() + "You have " + players[i].getArmies() + " armies." +
-                        "Place them by indicating the names of the territory then the number." +
-                        " Input end when done or no");
+                if(players[i].getArmies()>0) {
+                    System.out.println(players[i].getName() + " You have " + players[i].getArmies() + " armies." +
+                            "Place them by indicating the names of the territory then the number. " +
+                            "Input end when done");
+                }
 
-                while (!sc.next().equals("done")) {
-                    Territory trr = players[i].returnTerritory(sc.next());
+                while (true) {
+                    String input = sc.next();
+                    if(input.equals("end")) {
+                        break;
+                    }
+                    Territory trr = players[i].returnTerritory(input);
                     int number = sc.nextInt();
                     players[i].addArmyToTerritory(trr, number);
                 }
+
                 System.out.println(players[i].getName() + " Do you want to attack. Yes/No");
+
                 if (sc.next().equals("Yes")) {
-                    System.out.println(players[i].getName() + "specify the origin, player name and destination you wish to attack");
+                    System.out.println(players[i].getName() + " specify the origin, player name and destination you wish to attack");
                     Territory origin = players[i].returnTerritory(sc.next());
                     Player p = returnPlayer(players, sc.next());
                     Territory destination = p.returnTerritory(sc.next());
@@ -87,10 +99,14 @@ public class GameConsole {
                 }
                 System.out.println(players[i].getName() + " Do you want to fortify. Yes/No");
                 if (sc.next().equals("Yes")) {
-                    System.out.println("Specify the origin, destination and the number of armeis you want to move. Input done when finisehd.");
-
-                    while (!sc.next().equals("done")) {
-                        Territory origin = players[i].returnTerritory(sc.next());
+                    System.out.println("Specify the origin, destination and the number of armies you want to move." +
+                            "Input end when done");
+                    while (true) {
+                        String firstInput = sc.next();
+                        if(firstInput.equals("end")) {
+                            break;
+                        }
+                        Territory origin = players[i].returnTerritory(firstInput);
                         Territory destination = players[i].returnTerritory(sc.next());
                         int number = sc.nextInt();
                         try {
@@ -114,7 +130,7 @@ public class GameConsole {
      * @return <code>Player</code> that matches the name.
      */
 
-    private static Player returnPlayer(Player[] players, String name) {
+    public static Player returnPlayer(Player[] players, String name) {
         for(int i = 0; i< players.length; i++) {
             if(players[i].getName().equals(name)) {
                 return players[i];

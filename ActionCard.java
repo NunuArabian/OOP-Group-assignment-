@@ -5,7 +5,7 @@
 
 public class ActionCard extends Card{
 
-    public enum PlayTime {OPPONENT_INVADES, END_OF_TURN, JOKER}
+    public enum PlayTime {OPPONENT_INVADES, END_OF_TURN}
 
     public enum Action {CEASE_FIRE, REDEPLOYMENT, STEALTH_MODS, FORTIFY}
     private PlayTime playTime;
