@@ -14,7 +14,7 @@ public class Game {
     //private int currentPlayerIndex;
 
     public static final int NUMBER_OF_PLAYERS = 4;
-    private static final int NUMBER_OF_TURNS = 6;
+    private static final int NUMBER_OF_TURNS = 5;
     private static final int NUMBER_OF_CONTINENTS = 6;
 
 
