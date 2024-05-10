@@ -1,0 +1,111 @@
+﻿Setup
+* Players: Alice, Bob, Charlie, Dave
+* Number of Players: 4
+* Total Armies per Player: 30
+Territory and Army Distribution
+Each player distributes their 30 armies across their territories. Here's a proposed distribution:
+* Alice:
+Alaska 3
+Alberta 2
+CentralAmerica 3
+Venezuela 3
+NorthAfrica 3
+Egypt 4
+EastAfrica 2
+SouthAfrica 2
+Afghanistan 3
+India 3
+Siam 2
+end
+* Bob:
+Greenland 3
+NorthwestTerritory 2
+Ontario 3
+Quebec 2
+WesternUnitedStates 3
+Brazil 4
+Argentina 2
+Peru 2
+GreatBritain 3
+Iceland 6
+end
+
+
+
+
+* Charlie:
+EasternUnitedStates 3
+Scandinavia 2
+Ukraine 5
+NorthernEurope 4
+SouthernEurope 3
+Congo 2
+Madagascar 2
+WesternEurope 3
+Japan 2
+MiddleEast 4
+end
+
+
+* Dave:
+Irkutsk 3
+Mongolia 2
+China 2
+Kamchatka 3
+Siberia 3
+Ural 3
+Yakutsk 5
+Indonesia 2
+NewGuinea 2
+EasternAustralia 3
+WesternAustralia 2
+end
+Gameplay Example
+Turn 1
+* Alice:
+   * Places armies in Afghanistan, attacks China (Dave) from Afghanistan and successfully conquers it, fortifies East Africa from Egypt by moving 1 army
+* Bob:
+   * Places 3 armies in Brazil, launches an attack on Venezuela (Alice) from Brazil,, fortifies Quebec from Ontario.
+* Charlie:
+   * Places new armies in Ukraine, uses it to attack Afghanistan (Alice) from Ukraine, fortifies Scandinavia from Northern Europe.
+* Dave:
+   * Places new armies in Indonesia, attacks from Indonesia to Siam (Alice) fortifies Kamchatka from Yakutsk.
+Turn 2
+* Alice:
+   * Places new armies in NorthAfrica, attacks SouthernEurope(Charlies) from Egypt, fortifies South Africa from East Africa.
+* Bob:
+   * Places new armies in Argentina, attacks EasternUnitedStates (Charlie)  from Quebec and takes it.
+* Charlie:
+   * Placing new armies in SouthernEurope, fortifies Ukraine from Scandinavia.
+* Dave:
+   * Places new armies in China, attacks India (Alice) from China
+Turn 3
+* Alice:
+   * Places new armies in Afghanistan, attacks Middle East (Charlie) from Afghanistan.
+* Bob:
+   * Places new armies in Greenland, attacks WesternEurope(Charlie) from Greenland.
+* Charlie:
+   * Places new armies in Japan
+* Dave:
+   * Places new armies in Ural, attacks Japan (Charlie) from Mongolia
+Turn 4
+* Alice: 
+   * Places armies in North Africa, attack Congo (Charlie) from North Africa.
+* Bob: 
+   * Places armies in Iceland, attempts to attack Scandinavia (Charlie) from Iceland.
+* Charlie: 
+   * Places 3 armies in Western Europe, attempts to attack Southern Europe (Dave) from Western Europe. 
+* Dave: 
+   * Places 3 armies in Yakutsk, attempts to attack Mongolia (Alice) from Yakutsk. 
+Turn 5
+* Alice: 
+   * Places armies in Egypt, attempts to attack Afghanistan (Charlie) from Egypt with 3 armies. 
+* Bob: 
+   * Places armies in Quebec, attempts to attack Eastern United States (Charlie) from Quebec. 
+* Charlie: 
+   * Places armies in Ukraine, attempts to attack Middle East (Dave) from Ukraine.
+* Dave: 
+   * Places armies in Kamchatka, attempts to attack Alaska (Alice) from Kamchatka.
+Ending Conditions
+* After 5 Turns: Evaluate which player controls the most territories.
+* Conquest: If any player conquers all territories before the 6th turn, they are declared the winner.
