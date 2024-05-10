@@ -28,7 +28,7 @@ The game also adds Action Cards to the default deck, which can be played at diff
 3. The bonus troop feature is not implemented.
 4. Players can only attack once during the turn. The attack continues until there are no more eligible armies to send or when the attacking player conquers the territory. 
 5. Action card play methods are not currently implemented
-6. Whitespaces in territory names are not supported (United States should be inputted as UnitedStates).
+6. <b>Whitespaces in territory names are not supported (United States should be inputted as UnitedStates).</b>
 7. Sample gameplay: https://docs.google.com/document/d/1UkgLcRqF9bToNu3cQ-GQtzXI3wY1X5oVfWCY8zIiRn8/
 
 ![image](https://github.com/NunuArabian/OOP-Group-assignment-/assets/162872072/6da38377-4c53-4b6c-a042-2033b3280d98)
